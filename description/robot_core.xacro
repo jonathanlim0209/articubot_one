@@ -73,6 +73,7 @@
         <material>Gazebo/Orange</material>
     </gazebo>
 
+
     <!-- LEFT WHEEL LINK -->
 
     <joint name="left_wheel_joint" type="continuous">
