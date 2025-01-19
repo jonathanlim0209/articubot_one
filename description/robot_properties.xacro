@@ -13,13 +13,24 @@
     <xacro:property name="wheel_thickness" value="0.024"/>
     <xacro:property name="wheel_mass" value="0.05"/>
     <xacro:property name="wheel_offset_x" value="0.055"/>
-    <xacro:property name="wheel_offset_y" value="0.0635"/>
-    <xacro:property name="wheel_offset_z" value="0.013"/>
+    <xacro:property name="wheel_offset_y" value="0.060"/>
+    <xacro:property name="wheel_offset_z" value="0.011"/>
 
 <!-- Castor Wheels-->
-    <xacro:property name="caster_wheel_radius" value="0.025"/>
+    <xacro:property name="caster_wheel_radius" value="0.02"/>
     <xacro:property name="caster_wheel_mass" value="0.01"/>
-    <xacro:property name="caster_wheel_offset_x" value="0.07"/>
-    <xacro:property name="caster_wheel_offset_z" value="0.04"/>
+    <xacro:property name="caster_wheel_offset_x" value="0.2"/>
+    <xacro:property name="caster_wheel_offset_z" value="0.02"/>
+
+<!-- Raspberry Pi-->
+    <xacro:property name="pi_length" value="0.095"/>
+    <xacro:property name="pi_width" value="0.065"/>
+    <xacro:property name="pi_height" value="0.03"/>
+    <xacro:property name="pi_mass" value="0.2"/>
+
+    <xacro:property name="pi_offset_x" value="0.2"/>
+    <xacro:property name="pi_offset_z" value="0.05"/>
+
+
 
 </robot>

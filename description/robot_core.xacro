@@ -47,16 +47,16 @@
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
-        <origin xyz="${-wheel_offset_x} 0 ${-wheel_offset_z}"/>
+        <origin xyz="${-wheel_offset_x} 0 ${wheel_offset_z}"/>
     </joint>
 
     <link name="chassis">
         <visual>
-            <origin xyz="${chassis_length/2} 0 ${chassis_height/2}"/>
+            <origin xyz="${chassis_length/2} 0 ${chassis_height/2}"/>         <!-- because object will always spwan with origin at the center-->
             <geometry>
-                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>   
             </geometry>
-            <material name="orange"/>
+            <material name="white"/>
         </visual>
         <collision>
             <origin xyz="${chassis_length/2} 0 ${chassis_height/2}"/>
@@ -143,7 +143,7 @@
     <joint name="caster_wheel_joint" type="fixed">
         <parent link="chassis"/>
         <child link="caster_wheel"/>
-        <origin xyz="${caster_wheel_offset_x} 0 ${caster_wheel_offset_z}"/>
+        <origin xyz="${caster_wheel_offset_x} 0 ${-caster_wheel_offset_z}"/>
     </joint>
 
 
@@ -169,5 +169,29 @@
         <mu1 value="0.001"/>
         <mu2 value="0.001"/>
     </gazebo>
+
+    <joint name="pi_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="pi_link"/>
+        <origin xyz="${pi_offset_x} 0 ${pi_offset_z}"/>
+    </joint>
+
+    <link name="pi_link">
+        <visual>
+            <geometry>
+                <box size="${pi_length} ${pi_width} ${pi_height}"/>   
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin xyz="${pi_length/2} 0 ${pi_height/2}"/>
+            <geometry>
+                <box size="${pi_length} ${pi_width} ${pi_height}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.5" x="${pi_length}" y="${pi_width}" z="${pi_height}">
+            <origin xyz="${pi_offset_x} 0 ${pi_offset_z}" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
 
 </robot>
